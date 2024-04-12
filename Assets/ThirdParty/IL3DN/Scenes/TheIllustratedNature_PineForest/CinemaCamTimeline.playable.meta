@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 982343f102e991643911977bc8bb2b48
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 153939
+  packageName: The Illustrated Nature
+  packageVersion: 1.9
+  assetPath: Assets/IL3DN/Scenes/TheIllustratedNature_PineForest/CinemaCamTimeline.playable
+  uploadId: 636195

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 11ef2c28c3102d64891e6c203a6206db
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 153939
+  packageName: The Illustrated Nature
+  packageVersion: 1.9
+  assetPath: Assets/IL3DN/Scripts/IL3DN_ColorController.cs
+  uploadId: 636195

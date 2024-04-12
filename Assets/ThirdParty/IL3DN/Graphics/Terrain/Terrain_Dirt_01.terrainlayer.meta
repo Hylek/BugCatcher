@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b4b76e98f4bbcbf42ac5a4fd0c390a69
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8574412962073106934
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 153939
+  packageName: The Illustrated Nature
+  packageVersion: 1.9
+  assetPath: Assets/IL3DN/Graphics/Terrain/Terrain_Dirt_01.terrainlayer
+  uploadId: 636195

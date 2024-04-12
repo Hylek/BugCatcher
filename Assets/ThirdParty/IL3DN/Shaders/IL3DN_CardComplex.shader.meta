@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ea6e0789affaacc4fb39ef428aaf8236
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 153939
+  packageName: The Illustrated Nature
+  packageVersion: 1.9
+  assetPath: Assets/IL3DN/Shaders/IL3DN_CardComplex.shader
+  uploadId: 636195

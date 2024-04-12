@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 4de78c01ad293d548a9b043accac7a90
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 153939
+  packageName: The Illustrated Nature
+  packageVersion: 1.9
+  assetPath: Assets/IL3DN/Scripts/Editor/IL3DN_Snow_Editor.cs
+  uploadId: 636195

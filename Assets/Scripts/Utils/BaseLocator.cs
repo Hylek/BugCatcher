@@ -39,8 +39,9 @@ namespace Utils
 
         public static void Remove<T>()
         {
-            Services[typeof(T)] = null;
-            Services.Remove(typeof(T));
+            var t = typeof(T);
+            Services[t] = null;
+            Services.Remove(t);
         }
 
         public static bool DoesServiceExist(Type type) => Services.Any(s => s.Key == type);

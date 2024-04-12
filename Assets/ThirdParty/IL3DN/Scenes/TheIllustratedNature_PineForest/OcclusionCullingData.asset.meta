@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5c7b853a8979f85478168cf41cc4fc94
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 36300000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 153939
+  packageName: The Illustrated Nature
+  packageVersion: 1.9
+  assetPath: Assets/IL3DN/Scenes/TheIllustratedNature_PineForest/OcclusionCullingData.asset
+  uploadId: 636195

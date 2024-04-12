@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ac22932ac7381fd4e9ed4bd20bb55d60
+timeCreated: 1485539969
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 153939
+  packageName: The Illustrated Nature
+  packageVersion: 1.9
+  assetPath: Assets/IL3DN/Graphics/Materials/IL3DN_Sky_Procedural_Night.mat
+  uploadId: 636195

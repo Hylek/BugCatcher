@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cef2b4aff14b59b469823ac58c967d48
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 153939
+  packageName: The Illustrated Nature
+  packageVersion: 1.9
+  assetPath: Assets/IL3DN/Graphics/Materials/IL3DN_Ground_Grass.mat
+  uploadId: 636195

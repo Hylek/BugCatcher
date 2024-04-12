@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5ef09237db9c2fb45b2d476d701bd6d5
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 153939
+  packageName: The Illustrated Nature
+  packageVersion: 1.9
+  assetPath: Assets/IL3DN/Graphics/Materials/IL3DN_Ground_Dirt.mat
+  uploadId: 636195
