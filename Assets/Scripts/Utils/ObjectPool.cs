@@ -1,71 +1,77 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-
-// Made by Daniel Cumbor in 2024.
+using Object = UnityEngine.Object;
 
 namespace Utils
 {
-    public class ObjectPool : MonoBehaviour
+    public class ObjectPool<T> : IDisposable where T : MonoBehaviour
     {
-        [SerializeField] private PoolableObject poolObjectPrefab;
-        [SerializeField] private int startingPoolSize;
-        [SerializeField] private bool expandDynamically;
+        private readonly Queue<T> _pooledObjects;
+        private readonly T _prefab;
+        private readonly Transform _parentTransform;
+        private readonly bool _canExpand;
 
-        private List<PoolableObject> _pool;
-
-        public void Awake()
+        public ObjectPool(T prefab, Transform parentTransform, int initialAmount = 0, bool canExpand = true)
         {
-            _pool = new List<PoolableObject>();
+            _prefab = prefab;
+            _parentTransform = parentTransform;
+            _canExpand = canExpand;
+            _pooledObjects = new Queue<T>();
             
-            if (startingPoolSize <= 0) return;
-            
-            for (var i = 0; i < startingPoolSize; i++)
+            if (initialAmount <= 0) return;
+
+            PreWarmPool(initialAmount);
+        }
+
+        private void PreWarmPool(int initialAmount)
+        {
+            // Pre-warm the pool with a set amount of objects ready to use.
+            for (var i = 0; i < initialAmount; i++)
             {
-                var newObject = Instantiate(poolObjectPrefab, transform);
-                newObject.Init();
-                _pool.Add(newObject);
+                var go = Object.Instantiate(_prefab, _parentTransform);
+                go.gameObject.SetActive(false);
+                go.transform.SetParent(_parentTransform);
+                _pooledObjects.Enqueue(go);
             }
         }
 
-        /// <summary>
-        /// Get an object from the pool. If ExpandDynamically is true,
-        /// and the pool is empty; a new object will be made.
-        /// </summary>
-        /// <returns>An object from the pool, ready to be used.</returns>
-        public PoolableObject GetObject()
+        public T GetObject()
         {
-            if (_pool.Count <= 0)
+            T objectToReturn;
+            
+            if (_pooledObjects.Count > 0)
             {
-                if (expandDynamically)
-                {
-                    var newObject = Instantiate(poolObjectPrefab, transform);
-                    newObject.Init();
-                    
-                    // Do not store it as we plan to immediately return it.
-                    return newObject;
-                }
-
-                Debug.LogWarning("The pool has no available objects!");
-
-                return null;
+                objectToReturn = _pooledObjects.Dequeue();
+                objectToReturn.gameObject.SetActive(true);
             }
-
-            var objectToRelease = _pool[0];      
-            objectToRelease.Init();
-            _pool.RemoveAt(0); 
-                
-            return objectToRelease;
+            else if (_canExpand)
+            {
+                objectToReturn = Object.Instantiate(_prefab, _parentTransform);
+                objectToReturn.GetComponent<MonoBehaviour>().enabled = false; // Disable initial behavior
+            }
+            else
+            {
+                throw new UnityException("Object pool is out of objects and cannot expand!");
+            }
+            
+            return objectToReturn;
         }
-        
-        /// <summary>
-        /// Return the object back to the pool to be recycled.
-        /// </summary>
-        /// <param name="objectToReturn">The object to return to the pool.</param>
-        public void ReturnObject(PoolableObject objectToReturn)
+
+        public void ReturnObject(T objectToReturn)
         {
-            objectToReturn.transform.parent = transform;
-            objectToReturn.Reset();
-            _pool.Add(objectToReturn);
+            objectToReturn.gameObject.SetActive(false);
+            objectToReturn.transform.SetParent(_parentTransform);
+            _pooledObjects.Enqueue(objectToReturn);
+        }
+
+        public void Dispose()
+        {
+            foreach (var pooledObject in _pooledObjects)
+            {
+                Object.Destroy(pooledObject);
+            }
+            _pooledObjects.Clear();
         }
     }
 }
