@@ -5,14 +5,19 @@ using Object = UnityEngine.Object;
 
 namespace Utils
 {
-    public class ObjectPool<T> : IDisposable where T : MonoBehaviour
+    public interface IPoolableBugObject
+    {
+        public void SetDestination(Transform transform);
+    }
+    
+    public class ObjectPool_Old<T> : IDisposable where T : MonoBehaviour
     {
         private readonly Queue<T> _pooledObjects;
         private readonly T _prefab;
         private readonly Transform _parentTransform;
         private readonly bool _canExpand;
 
-        public ObjectPool(T prefab, Transform parentTransform, int initialAmount = 0, bool canExpand = true)
+        public ObjectPool_Old(T prefab, Transform parentTransform, int initialAmount = 0, bool canExpand = true)
         {
             _prefab = prefab;
             _parentTransform = parentTransform;
@@ -48,7 +53,7 @@ namespace Utils
             else if (_canExpand)
             {
                 objectToReturn = Object.Instantiate(_prefab, _parentTransform);
-                objectToReturn.GetComponent<MonoBehaviour>().enabled = false; // Disable initial behavior
+                objectToReturn.gameObject.SetActive(true);
             }
             else
             {
